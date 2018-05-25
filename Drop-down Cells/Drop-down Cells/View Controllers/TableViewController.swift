@@ -69,6 +69,8 @@ class TableViewController: UITableViewController {
             tableView.reloadSections(sections, with: .none) // Use whichever animation you like
         } else {
             data[indexPath.section].opened = true
+            let sections = IndexSet.init(integer: indexPath.section)
+            tableView.reloadSections(sections, with: .none) // Use whichever animation you like
         }
     }
 
