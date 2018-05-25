@@ -63,14 +63,16 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if mainSections[indexPath.section].opened == true {
-            mainSections[indexPath.section].opened = false
-            let sections = IndexSet.init(integer: indexPath.section)
-            tableView.reloadSections(sections, with: .none) // Use whichever animation you like
-        } else {
-            mainSections[indexPath.section].opened = true
-            let sections = IndexSet.init(integer: indexPath.section)
-            tableView.reloadSections(sections, with: .none) // Use whichever animation you like
+        if indexPath.row == 0 { // Need this to avoid closing the drop-down upon touch of the child cells
+            if mainSections[indexPath.section].opened == true {
+                mainSections[indexPath.section].opened = false
+                let sections = IndexSet.init(integer: indexPath.section)
+                tableView.reloadSections(sections, with: .none) // Use whichever animation you like
+            } else {
+                mainSections[indexPath.section].opened = true
+                let sections = IndexSet.init(integer: indexPath.section)
+                tableView.reloadSections(sections, with: .none) // Use whichever animation you like
+            }
         }
     }
 
