@@ -66,7 +66,7 @@ class TableViewController: UITableViewController {
         if data[indexPath.section].opened == true {
             data[indexPath.section].opened = false
             let sections = IndexSet(integer: indexPath.section)
-            tableView.reloadSections(sections, with: .automatic) // Use whichever animation you like
+            tableView.reloadSections(sections, with: .none) // Use whichever animation you like
         } else {
             data[indexPath.section].opened = true
         }
