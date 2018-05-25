@@ -43,7 +43,7 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if data[section].opened == true {
-            return data[section].sectionData.count
+            return data[section].sectionData.count + 1 // Plus one to account for the first drop-down cell
         } else {
             return 1 // This is the section cell containing the others
         }
@@ -57,7 +57,7 @@ class TableViewController: UITableViewController {
         } else {
             // Use a custom class cell with its unique identifier if needed
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
-            cell.textLabel?.text = data[indexPath.section].sectionData[indexPath.row]
+            cell.textLabel?.text = data[indexPath.section].sectionData[indexPath.row - 1] // Minus one since we have cells in total (including the section cell) but only three elements as sectionData
             return cell
         }
     }
