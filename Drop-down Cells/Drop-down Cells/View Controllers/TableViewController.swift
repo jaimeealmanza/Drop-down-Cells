@@ -65,7 +65,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if data[indexPath.section].opened == true {
             data[indexPath.section].opened = false
-            let sections = IndexSet(integer: indexPath.section)
+            let sections = IndexSet.init(integer: indexPath.section)
             tableView.reloadSections(sections, with: .none) // Use whichever animation you like
         } else {
             data[indexPath.section].opened = true
